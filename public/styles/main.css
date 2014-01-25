@@ -1,0 +1,141 @@
+@import url("./../../vendor/pure/pure-min.css");
+@import url("./../../vendor/font-awesome/css/font-awesome.min.css");
+@import url("./../../vendor/spectrum/spectrum.css");
+@import url("./../icon/css/brushes.css");
+
+body {
+  background-color: #575757;
+}
+
+.header {
+  margin-bottom: 10px;
+}
+
+.header .pure-menu {
+  background-color: #ECF0F1;
+}
+
+.header .pure-menu-heading {
+  padding-left: 35px;
+}
+
+.container .pure-menu {
+  border: none;
+  background-color: #575757;
+}
+
+.container .pure-menu ul li a{
+  color: #ECF0F1;
+}
+
+.container .pure-menu ul li a:hover{
+  background-color: #575757;
+  color: #97999A;
+}
+
+.left-navigation {
+  text-align: center;
+}
+
+.right-navigation {
+  font-family: sans-serif;
+  font-size: 90%;
+  color: #d6d6d6;
+}
+
+.right-navigation label {
+  display: inline-block;
+  vertical-align: top;
+  width: 100px;
+}
+
+.brush-control {
+  margin-bottom: 10px;
+}
+
+#sizerange input {
+  vertical-align: middle;
+}
+
+#sizerange input[type='number'] {
+  width: 48px;
+}
+
+label.info-widget {
+  width: 32px;
+  padding-left: 10px;
+}
+
+#loading-indicator{
+  display: none;
+  position: fixed;
+  width: 100px;
+  height: 24px;
+  top: 0;
+  left: 45%;
+  z-index: 10000;
+  font-size: 8px;
+  background-color: #3498DB;
+  color: white;
+  padding: 5px 5px;
+}
+
+#status-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background-color: #414141;
+}
+
+.pull-right {
+  float: right;
+}
+
+.status-info {
+  color: #ECF0F1;
+}
+
+.social-icon {
+  padding-right: 10px;
+}
+
+.alert {
+  font-family: sans-serif;
+  font-size: 90%;
+
+  padding-top: 5px;
+  padding-left: 10px;
+}
+
+.alert-warning {
+  color: #E67E22;
+}
+
+.alert-info {
+  color: #A4DBFF;
+}
+
+.alert-error {
+  color: #E74C3C;
+}
+
+#brushpanel-widget {
+  width: 95%;
+  height: 200px;
+  background-color: #414141;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+.brush-box {
+  float: left;
+  width: 64;
+  height: 64px;
+  margin: 2px;
+}
+
+.active {
+  background-color: #2E2E2E;
+}
