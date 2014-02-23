@@ -36,4 +36,40 @@ io.sockets.on('connection', function (socket) {
     socket.on('brushdown', function (data) {
         socket.broadcast.emit('brushdown', data);
     });
+
+    socket.on('createText', function (data) {
+        socket.broadcast.emit('createText', data);
+    });
+
+    socket.on('createShirt', function (data) {
+        socket.broadcast.emit('createShirt', data);
+    });
+
+    socket.on('controlObject', function (data) {
+        socket.broadcast.emit('controlObject', data);
+    });
+
+    socket.on('canvasClear', function (data) {
+        socket.broadcast.emit('canvasClear', data);
+    });
+
+    socket.on('canvasRemove', function (data) {
+        socket.broadcast.emit('canvasRemove', data);
+    });
+
+    socket.on('brushProperties', function (data) {
+        socket.broadcast.emit('brushProperties', data);
+    });
+
+    socket.on('brushActive', function (data) {
+        socket.broadcast.emit('brushActive', data);
+    });
+
+    socket.on('outlineBrush', function (data) {
+        socket.broadcast.emit('outlineBrush', data);
+    });
+
+    socket.on('imagePainter', function (data) {
+        socket.broadcast.emit('imagePainter', data);
+    });
 });

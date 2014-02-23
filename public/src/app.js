@@ -7,7 +7,9 @@ define(function(require){
   
       brushPainter = require('painters/brushPainter'),
       freehandPainter = require('painters/freehandPainter'),
+      textPainter = require('painters/textPainter'),
       imagePainter = require('painters/imagePainter'),
+      shirtPainter = require('painters/shirtPainter'),
 
       paintWidgets = require('ui/paintWidget/paintWidgets'),
       canvasManipulationWidget = require('ui/canvasManipulationWidget/canvasManipulationWidget'),
@@ -16,8 +18,15 @@ define(function(require){
       brushSensitivityWidget = require('ui/brushSensitivityWidget/brushSensitivityWidget'),
       imageCanvasWidget = require('ui/imageCanvasWidget/imageCanvasWidget'),
       freehandWidget = require('ui/freehandWidget/freehandWidget'),
+      testWidget = require('ui/testWidget/testWidget'),
+      saveWidget = require('ui/saveWidget/saveWidget'),
+      fbWidget = require('ui/FBWidget/FBWidget'),
       colorWidget = require('ui/colorWidget/colorWidget'),
       brushPanelWidget = require('ui/brushPanel/brushPanel'),
+      //David widget 
+      textWidget = require('ui/textWidget/textWidget'),
+
+      shirtWidget = require('ui/shirtWidget/shirtWidget'),
 
       notification = require('ui/notification/notification'),
       keyHandler = require('ui/keyHandler/keyHandler'),
@@ -33,6 +42,7 @@ define(function(require){
       _socket;
 
   function Application(socket){
+  // function Application(){
     // application wide error handling
     requirejs.onError = function(err) {
       console.log(err);
@@ -48,9 +58,15 @@ define(function(require){
      * component is instantiated
      */
     freehandWidget.attachTo('.left-navigation');
+    testWidget.attachTo('.left-navigation');
     paintWidgets.attachTo('.left-navigation');
     imageCanvasWidget.attachTo('.left-navigation');
     canvasManipulationWidget.attachTo('.left-navigation');
+    saveWidget.attachTo('.left-navigation');
+    fbWidget.attachTo('.left-navigation');
+    //David widget
+    textWidget.attachTo('.left-navigation');
+    shirtWidget.attachTo('.left-navigation');
 
     brushSizeWidget.attachTo('#sizerange');
     brushDistanceWidget.attachTo('#brushdistance');
@@ -61,18 +77,21 @@ define(function(require){
     
     keyHandler.attachTo(document);
 
-    brushManager.attachTo(document);
+    brushManager.attachTo(document, {_socket: _socket});
     outlineManager.attachTo(document);
 
-    cleaningService.attachTo(document);
+    cleaningService.attachTo(document, {_socket: _socket});
+
 
     /**
      * The lukis component will publish the canvas instance
      * and its DOM element with an event name of `canvasConstructed`.
      */
-    brushPainter.attachTo(document);
+    brushPainter.attachTo(document, {_socket: _socket});
     freehandPainter.attachTo(document, {_socket: _socket});
-    imagePainter.attachTo(document);
+    textPainter.attachTo(document, {_socket: _socket});
+    imagePainter.attachTo(document, {_socket: _socket});
+    shirtPainter.attachTo(document, {_socket: _socket});
 
     /**
      * Components that hold data should be instantiated here.

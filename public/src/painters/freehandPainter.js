@@ -36,8 +36,9 @@ define(function(require) {
         var brush = self.attr.canvas.freeDrawingBrush;
         console.log('mouse down');
         console.log(data);
-        self.initFreehandPainting();
         brush.onMouseDown(data, true);
+        self.cancelCurrentPainting();
+        self.initFreehandPainting();
       });
       this.attr._socket.on('brushmove', function(data) {
         var brush = self.attr.canvas.freeDrawingBrush;
@@ -48,6 +49,8 @@ define(function(require) {
         var brush = self.attr.canvas.freeDrawingBrush;
         console.log('mouse up');
         brush.onMouseUp(true);
+        self.cancelCurrentPainting();
+        self.stopFreehandPainting();
       });
     });
 
